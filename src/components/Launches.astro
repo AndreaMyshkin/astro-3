@@ -1,0 +1,24 @@
+---
+
+const res = await fetch('http://api.spacexdata.com/v5/launches');
+
+const data = await res.json();
+console.log({ data });
+
+
+---
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+{
+ data.map((launch: any)=> (
+    <article class="flex flex-col flex-center items-center">
+        <img src={launch.links.patch.small} />
+        <h3>{launch.id}</h3>
+<p class="text-center">{launch.details}</p>
+        </article>
+   
+
+ ))
+}
+</div>
